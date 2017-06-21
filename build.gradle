@@ -1,0 +1,65 @@
+apply plugin: 'com.android.application'
+
+android {
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    signingConfigs {
+        MySigning {
+            keyAlias 'key'
+            keyPassword '941227'
+            storeFile file('C:/Users/hbm/Desktop/Appkey.store.jks')
+            storePassword '941227'
+        }
+    }
+    compileSdkVersion 25
+    buildToolsVersion '25.0.2'
+    defaultConfig {
+        applicationId "com.lihao.mobilplay"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.MySigning
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    productFlavors {
+        config {
+            signingConfig signingConfigs.MySigning
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    // compile 'com.android.support.constraint:constraint-layout:1.0.1'
+    compile project(':InitActivity')
+    compile files('libs/okhttp-3.6.0.jar')
+    compile files('libs/gson-2.8.0.jar')
+    compile project(':jcvideoplayer-lib')
+    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.github.powyin:scroll:1.5.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.1'
+    compile 'com.squareup.okio:okio:1.11.0'
+    compile 'com.felipecsl:gifimageview:2.1.0'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    testCompile 'junit:junit:4.12'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.4'
+    compile 'com.github.bumptech.glide:glide:3.5.2'
+}

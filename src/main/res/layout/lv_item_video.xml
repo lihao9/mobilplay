@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="80dp">
+    <ImageView
+        android:id="@+id/item_video_image"
+        android:src="@drawable/video_default_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_toRightOf="@+id/item_video_image"
+        android:orientation="vertical"
+        android:layout_marginLeft="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/item_video_tvname"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:text="内容"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/item_video_tvtime"
+            android:layout_marginTop="5dp"
+            android:textSize="16sp"
+            android:text="时间"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <TextView
+        android:layout_marginRight="8dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="视频大小"
+        android:textColor="#000"
+        android:id="@+id/item_video_tvsize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+</RelativeLayout>
